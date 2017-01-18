@@ -1,7 +1,7 @@
 Lenovo K3 Note 
 ==============
 
-This branch is for building of the Android Nougat 7.1 AOSP ROM.
+This branch is for building of the LineageOS 14.1.
 
 # About Device
 

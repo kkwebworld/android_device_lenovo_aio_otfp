@@ -1,5 +1,6 @@
+
 #
-# Copyright 2017 The Android Open-Source Project
+# Copyright 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,33 +15,30 @@
 # limitations under the License.
 #
 
-# Product common configurations
-# 64-bit support
+# Release name
+PRODUCT_RELEASE_NAME := Lenovo K3 Note
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
+
+# Inherit from AOSP 64-bit support
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# Inherit from the common Open Source product configuration
+# Inherit from AOSP product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
-# Inherit from hardware-specific part of the product configuration
+# Inherit Lineage's custom product configuration
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+
+# Call device specific makefile
 $(call inherit-product, device/lenovo/aio_otfp/device.mk)
 
-# Release name
-PRODUCT_RELEASE_NAME := aio_otfp
-
-EXTENDED_FONT_FOOTPRINT := true
-
+## Device identifier. This must come after all inclusions
+PRODUCT_NAME := lineage_aio_otfp
 PRODUCT_DEVICE := aio_otfp
-PRODUCT_NAME := full_aio_otfp
 PRODUCT_BRAND := Lenovo
-PRODUCT_MODEL := K3 Note
+PRODUCT_MODEL := Lenovo K3 Note
 PRODUCT_MANUFACTURER := Lenovo
 PRODUCT_RESTRICT_VENDOR_FILES := false
-
-# Boot animation
-TARGET_SCREEN_HEIGHT      := 1920
-TARGET_SCREEN_WIDTH       := 1080
-TARGET_BOOTANIMATION_NAME := 1080
-
-PRODUCT_DEFAULT_LANGUAGE := en
-PRODUCT_DEFAULT_REGION   := US
