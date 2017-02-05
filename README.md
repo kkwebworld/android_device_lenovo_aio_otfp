@@ -27,12 +27,29 @@ Front Camera | 5 MP, f/2.4
 
 ### Working:
 
- * Boots
+### Working:
+ * Wi-Fi
+ * Wi-Fi tethering
+ * GPS
+ * Bluetooth
+ * AGPS
+ * Vibration
+ * Audio
+ * Auto brightness
+ * RAM and ROM
+ * Rotation
+ * All sensors
+ * Flashlight (statusbar and camera)
+ * Camera rear/front (video and photo)
+ * Micro SD support
+ * RIL for SMS/calls/internet/LTE 
+ * MTP 
 
 ### Not Working:
 
- * Everthing Broken
+ * Offline charging
+ * FM radio
+ * LED Notifications
 
 ### Thanks to:
  * Daniel_hk
- * MAD Team
