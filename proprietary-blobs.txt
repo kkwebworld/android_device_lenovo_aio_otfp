@@ -12,6 +12,7 @@ bin/audiocmdservice_atci
 bin/autokd
 bin/badblocks
 bin/batterywarning
+bin/bin.txt
 bin/bmm050d
 bin/ccci_fsd
 bin/ccci_mdinit
@@ -31,8 +32,6 @@ bin/geomagneticd
 bin/gsm0710muxd
 bin/gsm0710muxdmd2
 bin/guiext-server
-bin/hostapd
-bin/hostapd_cli
 bin/ipod
 bin/kpoc_charger
 bin/lcdc_screen_cap
@@ -106,7 +105,7 @@ lib/libBnMtkCodec.so
 lib/libbt-vendor.so
 lib/libbwc.so
 lib/libcam1_utils.so
-lib/libcam.halsensor.so
+lib/libcam2halsensor.so
 lib/libcam3_app.so
 lib/libcam3_hwnode.so
 lib/libcam3_hwpipeline.so
@@ -164,12 +163,10 @@ lib/libfs_mgr.so
 lib/libgas.so
 lib/libged.so
 lib/libgpu_aux.so
-lib/libgui_ext.so
 lib/libhwm.so
 lib/libimageio_plat_drv.so
 lib/libimageio.so
 lib/libion_mtk.so
-lib/libion.so
 lib/libipod.so
 lib/libja3m.so
 lib/libJpgDecPipe.so
@@ -243,8 +240,8 @@ lib/libSwJpgCodec.so
 lib/libtfa9897_interface.so
 lib/libtimestretch.so
 lib/libtouchfilter.so
+lib/lib.txt
 lib/libudf.so
-lib/libui_ext.so
 lib/libvc1dec_sa.ca7.so
 lib/libvcodec_cap.so
 lib/libvcodecdrv.so
@@ -262,6 +259,7 @@ lib/mtk-ril.so
 lib/volte_imsm.so
 lib/drm/libdrmctaplugin.so
 lib/drm/libdrmmtkplugin.so
+lib/drm/
 lib/egl/egl.cfg
 lib/egl/libGLES_android.so
 lib/egl/libGLES_mali.so
@@ -276,8 +274,12 @@ lib/hw/mmsdk.mt6752.so
 lib/hw/sensors.mt6752.so
 
 
+lib64/drm
+lib64/egl
+lib64/hw
 lib64/lib3a_sample.so
 lib64/lib3a.so
+lib64/lib64.txt
 lib64/liba3m.so
 lib64/libaal.so
 lib64/libacdk.so
@@ -298,7 +300,7 @@ lib64/libbluetooth_relayer.so
 lib64/libBnMtkCodec.so
 lib64/libbwc.so
 lib64/libcam1_utils.so
-lib64/libcam.halsensor.so
+lib64/libcam2halsensor.so
 lib64/libcam3_app.so
 lib64/libcam3_hwnode.so
 lib64/libcam3_hwpipeline.so
@@ -353,12 +355,10 @@ lib64/libfs_mgr.so
 lib64/libgas.so
 lib64/libged.so
 lib64/libgpu_aux.so
-lib64/libgui_ext.so
 lib64/libhwm.so
 lib64/libimageio_plat_drv.so
 lib64/libimageio.so
 lib64/libion_mtk.so
-lib64/libion.so
 lib64/libja3m.so
 lib64/libJpgDecPipe.so
 lib64/libJpgEncPipe.so
@@ -426,7 +426,6 @@ lib64/libterservice.so
 lib64/libtfa9897_interface.so
 lib64/libtouchfilter.so
 lib64/libudf.so
-lib64/libui_ext.so
 lib64/libvcodec_cap.so
 lib64/libvcodecdrv.so
 lib64/libvcodec_utility.so

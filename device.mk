@@ -28,24 +28,26 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Prebuilt Kernel
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+# Hack for building without kernel sources
+#$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 
-PRODUCT_COPY_FILES := \
+# Prebuilt Kernel
+#ifeq ($(TARGET_PREBUILT_KERNEL),)
+#LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+#else
+#LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+#endif
+
+#PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel 
 
 # Recovery allowed devices
 TARGET_OTA_ASSERT_DEVICE := aio_otfp_m,aio_otfp,aio_5m,k50a40,k50t5,K50-t5
 
-#PRODUCT_PACKAGES += \
-   libmtk_symbols \
-   libstlport
-
 PRODUCT_PACKAGES += \
+org.dirtyunicorns.utils
+
+#PRODUCT_PACKAGES += \
    libgui_shim
 
 # RIL
@@ -54,7 +56,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcam.halsensor 
+    libcam.halsensor \
+    libcamera_parameters_ext 
     
 PRODUCT_PACKAGES += \
 	libwvmsym
@@ -63,12 +66,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libgralloc_extra 
 
+# MiraVision
+#PRODUCT_PACKAGES += \
+	 MiraVision
+
 PRODUCT_PACKAGES += \
 	libnl_2 
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.mt6752
+    lights.mt6752 \
+    lights.default
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -79,7 +87,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/audio_em.xml:system/etc/audio_em.xml \
 	$(LOCAL_PATH)/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/prebuilt/etc/audio_param/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml
-
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -111,7 +118,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/gps/slp_conf:system/etc/slp_conf \
     $(LOCAL_PATH)/prebuilt/etc/gps/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
-
+    
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/enableswap.sh:root/enableswap.sh \
@@ -147,6 +154,32 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += \
     fs_config_files
+
+# default.prop
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    camera.disable_zsl_mode=1 \
+    persist.service.acm.enable=0 \
+    persist.sys.usb.config=mtp,adb \
+    ro.allow.mock.location=0 \
+    ro.config.low_ram=false \
+    ro.debuggable=1 \
+    ro.dalvik.vm.native.bridge=0 \
+    ro.mount.fs=EXT4 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
+
+# build.prop
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.service.adb.enable=1 \
+    persist.service.debuggable=1 \
+    persist.sys.root_access=0
+
+# extra log controls prop
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.ril.log=0 \
+    ro.disable.xlog=0
 
 # Dalvik/HWUI
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
