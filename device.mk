@@ -44,39 +44,23 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Recovery allowed devices
 TARGET_OTA_ASSERT_DEVICE := aio_otfp_m,aio_otfp,aio_5m,k50a40,k50t5,K50-t5
 
-PRODUCT_PACKAGES += \
-org.dirtyunicorns.utils
-
-#PRODUCT_PACKAGES += \
-   libgui_shim
-
 # RIL
 PRODUCT_PACKAGES += \
     libccci_util 
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcam.halsensor \
-    libcamera_parameters_ext 
+    libcam.halsensor 
     
 PRODUCT_PACKAGES += \
 	libwvmsym
 
 # Graphic
 PRODUCT_PACKAGES += \
-	libgralloc_extra 
-
-# MiraVision
-#PRODUCT_PACKAGES += \
-	 MiraVision
+	libgralloc_extra
 
 PRODUCT_PACKAGES += \
 	libnl_2 
-
-# Lights
-PRODUCT_PACKAGES += \
-    lights.mt6752 \
-    lights.default
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -97,10 +81,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mediacodecs/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/mediacodecs/media_codecs.xml:system/etc/permissions/media_codecs.xml 
 
-
-# Bluetooth
-#PRODUCT_PACKAGES += \
-    libbt-vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
@@ -144,31 +124,29 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc 
     
 # Charger
+PRODUCT_PACKAGES += \
+    charger
+
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.mount.fs=EXT4
-
-# Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
 
 PRODUCT_PACKAGES += \
     fs_config_files
 
 # default.prop
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.adb.secure=0 \
-    ro.secure=0 \
     camera.disable_zsl_mode=1 \
     persist.service.acm.enable=0 \
     persist.sys.usb.config=mtp,adb \
-    ro.allow.mock.location=0 \
     ro.config.low_ram=false \
-    ro.debuggable=1 \
     ro.dalvik.vm.native.bridge=0 \
     ro.mount.fs=EXT4 \
-    media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
+
+ADDITIONAL_DEFAULT_PROPERTIES += \
+	ro.secure=0 \
+	ro.allow.mock.location=1 \
+	ro.debuggable=1 \
+	ro.adb.secure=0 \
 
 # build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
