@@ -26,8 +26,6 @@ Front Camera | 5 MP, f/2.4
 # Build Information
 
 ### Working:
-
-### Working:
  * Wi-Fi
  * Wi-Fi tethering
  * GPS
@@ -48,8 +46,7 @@ Front Camera | 5 MP, f/2.4
 ### Not Working:
 
  * Offline charging
- * FM radio
- * LED Notifications
+ * Camera HDR
 
 ### Thanks to:
  * Daniel_hk
