@@ -62,6 +62,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libnl_2 
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.mt6752
+
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Audio
