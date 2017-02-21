@@ -42,6 +42,8 @@ Front Camera | 5 MP, f/2.4
  * Micro SD support
  * RIL for SMS/calls/internet/LTE 
  * MTP 
+ * LED Notifications
+ * FM Radio
 
 ### Not Working:
 
