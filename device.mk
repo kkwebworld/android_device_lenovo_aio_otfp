@@ -55,9 +55,13 @@ PRODUCT_PACKAGES += \
 # Snap Cameraaaaaa
 PRODUCT_PACKAGES += \
     Snap
-    
+
+#Engmode
 PRODUCT_PACKAGES += \
-	libwvmsym
+    EngineerMode
+
+PRODUCT_PACKAGES += \
+        libwvmsym
 
 # Graphic
 PRODUCT_PACKAGES += \
