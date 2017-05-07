@@ -51,6 +51,10 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libcam.halsensor 
+
+# Snap Cameraaaaaa
+PRODUCT_PACKAGES += \
+    Snap
     
 PRODUCT_PACKAGES += \
 	libwvmsym
@@ -171,3 +175,4 @@ $(call inherit-product, device/lenovo/aio_otfp/configs/common.mk)
 
 # Vendor
 $(call inherit-product, vendor/lenovo/aio_otfp/aio_otfp-vendor.mk)
+

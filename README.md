@@ -44,11 +44,10 @@ Front Camera | 5 MP, f/2.4
  * MTP 
  * LED Notifications
  * FM Radio
-
-### Not Working:
-
- * Offline charging
- * Camera HDR
-
+ * Offline Charging
+ * HDR
 ### Thanks to:
  * Daniel_hk
+ * My Brain for doing good job
+ * Gsandeep
+ * Ninad Patil

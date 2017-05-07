@@ -28,6 +28,9 @@
 # FMRadio
 /dev/fm				0660	media	media
 
+# Alarm Support
+/dev/alarm 			0664	system 	radio
+
 # Trusty driver
 /dev/trusty-ipc-dev0		0660	system	keystore
 
