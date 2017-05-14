@@ -55,6 +55,10 @@ PRODUCT_PACKAGES += \
 # Snap Cameraaaaaa
 PRODUCT_PACKAGES += \
     Snap
+    
+# Browser
+  PRODUCT_PACKAGES += \
+     Jelly    
 
 #Engmode
 PRODUCT_PACKAGES += \
