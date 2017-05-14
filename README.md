@@ -5,7 +5,7 @@ This branch is for building of the LineageOS 14.1.
 
 # About Device
 
-![Lenovo K3 Note](http://cdn.ndtv.com/tech/images/lenovo_k3_note_flipkart.jpg?output-quality=80&output-format=jpg "Lenovo K3 Note in black")
+![Lenovo K3 Note]
 
 ### Specifications
 
@@ -46,9 +46,10 @@ Front Camera | 5 MP, f/2.4
  * FM Radio
  * Offline Charging
  * HDR
+
 ### Thanks to:
  * Daniel_hk
  * My Brain for doing good job
  * Gsandeep
  * Ninad Patil
-# Device-tree-for-Lenovo-K3-Note-K50a40-
+ * Adam Belamri
