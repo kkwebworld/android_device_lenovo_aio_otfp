@@ -51,3 +51,4 @@ Front Camera | 5 MP, f/2.4
  * My Brain for doing good job
  * Gsandeep
  * Ninad Patil
+# Device-tree-for-Lenovo-K3-Note-K50a40-
