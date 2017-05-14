@@ -338,4 +338,15 @@
     <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">-1</integer>
 
     <bool name="config_user_notification_of_restrictied_mobile_access">false</bool>
+	    <!-- Flag specifying whether VoLTE is available on device -->
+     <bool name="config_device_volte_available">true</bool>
+ 
+     <!-- Flag specifying whether VoLTE should be available for carrier: independent of
+          carrier provisioning. If false: hard disabled. If true: then depends on carrier
+          provisioning, availability etc -->
+     <bool name="config_carrier_volte_available">true</bool>
+ 
+ 
+     <!-- Flag specifying whether WFC over IMS is available on device -->
+     <bool name="config_device_wfc_ims_available">true</bool>
 </resources>
