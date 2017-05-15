@@ -4,9 +4,7 @@ ro.zygote.preload.enable=0
 service.adb.root=1
 
 persist.md.perm.checked=to_upgrade
-#persist.sys.memopt.switch=1
-#persist.sys.strictmode.visual=0
-#persist.sys.strictmode.disable=1
+
 
 # Mediatek Chip
 persist.mtk.wcn.combo.chipid=-1
@@ -83,8 +81,6 @@ persist.radio.fd.off.counter=5
 persist.radio.fd.r8.counter=15
 persist.radio.fd.off.r8.counter=5
 persist.radio.multisim.config=dsds
-#persist.service.atci.autostart=1
-#persist.service.atci.usermode=1
 
 bgw.current3gband=0
 #mux.debuglog.enable=0
