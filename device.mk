@@ -42,7 +42,11 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
     $(LOCAL_KERNEL):kernel 
 
 # Recovery allowed devices
-TARGET_OTA_ASSERT_DEVICE := aio_otfp_m,aio_otfp,aio_5m,k50a40,k50t5,K50-t5
+TARGET_OTA_ASSERT_DEVICE := aio_otfp
+
+#Limit Background Process
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.sys.fw.bg_apps_limits=5
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -80,22 +84,27 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# Audio
+# Audio policy & codec
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/audio_device.xml:system/etc/audio_device.xml \
-    $(LOCAL_PATH)/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
-    $(LOCAL_PATH)/prebuilt/etc/audio_em.xml:system/etc/audio_em.xml \
-	$(LOCAL_PATH)/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/prebuilt/etc/audio_param/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml
+    $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
 # Media
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/mediacodecs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/mediacodecs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
-    $(LOCAL_PATH)/configs/mediacodecs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
-    $(LOCAL_PATH)/configs/mediacodecs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/mediacodecs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/mediacodecs/media_codecs.xml:system/etc/permissions/media_codecs.xml 
+	$(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+	$(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+	
+# Keyboard layout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl \
+    $(LOCAL_PATH)/configs/Generic:system/usr/keylayout/Generic.kl \
+    $(LOCAL_PATH)/configs/ACCDET.kl:system/usr/keylayout/ACCDET.kl \
+    $(LOCAL_PATH)/configs/AVRCP.kl:system/usr/keylayout/AVRCP.kl
 
 
 PRODUCT_COPY_FILES += \
@@ -131,13 +140,10 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
     $(LOCAL_PATH)/configs/thermal/thermal.conf:system/etc/.tp/thermal.conf \
-    $(LOCAL_PATH)/configs/thermal/thermal.high.conf:system/etc/.tp/thermal.high.conf \
-    $(LOCAL_PATH)/configs/thermal/thermal.low.conf:system/etc/.tp/thermal.low.conf \
-    $(LOCAL_PATH)/configs/thermal/thermal.mid.conf:system/etc/.tp/thermal.mid.conf \
     $(LOCAL_PATH)/configs/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf \
-    $(LOCAL_PATH)/configs/thermal/thermal.performance.conf:system/etc/.tp/thermal.performance.conf \
-	$(LOCAL_PATH)/configs/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc 
+    $(LOCAL_PATH)/configs/thermal/.thermal_policy_00:system/etc/.tp/.thermal_policy_00
     
 # Charger
 PRODUCT_PACKAGES += \
@@ -159,10 +165,21 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.mount.fs=EXT4 \
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
-	ro.secure=0 \
-	ro.allow.mock.location=1 \
-	ro.debuggable=1 \
-	ro.adb.secure=0 \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    camera.disable_zsl_mode=1 \
+    dalvik.vm.dex2oat-Xms=64m \
+    dalvik.vm.dex2oat-Xmx=512m \
+    dalvik.vm.image-dex2oat-Xms=64m \
+    dalvik.vm.image-dex2oat-Xmx=64m \
+    persist.service.acm.enable=0 \
+    persist.sys.usb.config=mtp,adb \
+    ro.allow.mock.location=0 \
+    ro.config.low_ram=false \
+    ro.debuggable=1 \
+    ro.dalvik.vm.native.bridge=0 \
+    ro.mount.fs=EXT4
 
 # build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
