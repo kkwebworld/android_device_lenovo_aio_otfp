@@ -31,7 +31,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit Lineage's custom product configuration
-$(call inherit-product, vendor/cm/aosp/common.mk)
+$(call inherit-product, vendor/aosp/common.mk)
 
 # Call device specific makefile
 $(call inherit-product, device/lenovo/aio_otfp/device.mk)
