@@ -27,8 +27,8 @@
 	<bool name="world_phone">false</bool>
 	
     <!-- Flag whether to enable Proximity setting-->
-    <bool name="config_proximity_enable" translatable="false">true</bool>
+    <bool name="config_proximity_enable">true</bool>
 
     <!-- Show enabled lte option for lte device -->
-    <bool name="config_enabled_lte" translatable="false">true</bool>
+    <bool name="config_enabled_lte">true</bool>
 </resources>
